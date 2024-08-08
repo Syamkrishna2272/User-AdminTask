@@ -1,7 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:user_admin_machinetask/login/login_page.dart';
+import 'dart:async';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:user_admin_machinetask/firebase_options.dart';
+import 'package:user_admin_machinetask/login_page.dart';
+
+Future<void> main () async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 

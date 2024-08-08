@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485727361492",
+    "project_id": "newtok-task",
+    "storage_bucket": "newtok-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485727361492:android:b2159ffcdc9c32534f1e41",
+        "android_client_info": {
+          "package_name": "com.example.user_admin_machinetask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCABKAb0Fz3b5YtmPCbrn5yCSYMgmPJi0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
