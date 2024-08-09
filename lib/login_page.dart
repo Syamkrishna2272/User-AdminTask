@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_admin_machinetask/modules/adminmodule/screens/admin_dashboard_screen.dart';
 import 'package:user_admin_machinetask/modules/usermodule/screens/user_login_screen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -34,10 +35,10 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: size.height / 20),
             GestureDetector(
               onTap: () {
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) {
-                //   return const AdminLoginPage();
-                // }));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const AdminDashBoard();
+                }));
               },
               child: const Text(
                 "Admin Login",

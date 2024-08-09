@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:user_admin_machinetask/firebase_options.dart';
 import 'package:user_admin_machinetask/login_page.dart';
 
-Future<void> main () async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
@@ -18,16 +18,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const LoginPage(),
+      home: LoginPage(),
     );
   }
 }
-
-
