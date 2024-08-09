@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+
+
+//items counting function
+
 Future<void> submit(
     TextEditingController countryController,
     TextEditingController stateController,
@@ -24,6 +28,8 @@ Future<void> submit(
       backgroundColor: Colors.green,
     ));
 
+    
+
     Navigator.of(context).pop();
   } else {
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -33,3 +39,14 @@ Future<void> submit(
     ));
   }
 }
+
+
+//Listview builder showing function
+
+Future<List<Map<String, dynamic>>> fetchItems() async {
+    final QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('itemdata').get();
+    return querySnapshot.docs
+        .map((doc) => doc.data() as Map<String, dynamic>)
+        .toList();
+  }

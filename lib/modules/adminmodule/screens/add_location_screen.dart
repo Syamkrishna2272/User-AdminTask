@@ -12,7 +12,7 @@ class AddingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black12,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Center(
@@ -69,7 +69,6 @@ class AddingScreen extends StatelessWidget {
                               return null;
                             },
                             controller: stateController,
-                            // keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white,
@@ -133,7 +132,8 @@ class AddingScreen extends StatelessWidget {
                                     stateController,
                                     districtController,
                                     citiesController,
-                                    formkey,context);
+                                    formkey,
+                                    context ,);
                               },
                               icon: const Icon(
                                 Icons.check,
