@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:user_admin_machinetask/modules/adminmodule/screens/add_location_screen.dart';
+import 'package:user_admin_machinetask/modules/adminmodule/services/location_service.dart';
 
 class AdminDashBoard extends StatelessWidget {
   const AdminDashBoard({super.key});
@@ -117,21 +118,24 @@ class AdminDashBoard extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 Text(
                                   'State: ${item['State'] ?? 'N/A'}',
-                                  style: const TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 18,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   'District: ${item['District'] ?? 'N/A'}',
-                                  style: const TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 18,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   'City: ${item['City'] ?? 'N/A'}',
-                                  style: const TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 18,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 IconButton(
                                     onPressed: () {
-                                      _deleteItem(context, docSnapshot.id);
+                                      deleteItem(context, docSnapshot.id);
                                     },
                                     icon: const Icon(
                                       Icons.delete,
@@ -151,24 +155,5 @@ class AdminDashBoard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _deleteItem(BuildContext context, String docId) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('itemdata')
-          .doc(docId)
-          .delete();
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Item deleted successfully'),
-          backgroundColor: Colors.red,
-        ),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to delete item: $e')),
-      );
-    }
   }
 }

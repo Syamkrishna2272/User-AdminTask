@@ -7,6 +7,29 @@ class UserLoginPage extends StatelessWidget {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  
+  final String predefinedEmail = 'test@example.com';
+  final String predefinedPassword = '1234';
+
+  void _login(BuildContext context) {
+    final email = emailController.text;
+    final password = passwordController.text;
+
+    if (email == predefinedEmail && password == predefinedPassword) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const UserDashboard()),
+        (Route<dynamic> route) => false,
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          duration: Duration(seconds: 2),
+          content: Text('Invalid email or password'),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +84,7 @@ class UserLoginPage extends StatelessWidget {
                   ),
                   SizedBox(height: size.height / 10),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return UserDashboard();
-                      }));
-                    },
+                    onPressed: () => _login(context),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                       shape: RoundedRectangleBorder(
